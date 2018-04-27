@@ -1,239 +1,108 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
-
 includes:
   - errors
-
+  - company
+  - task
+  - ObtainTask
 search: true
 ---
 
-# Introduction
+# 介绍
+百应机器人API文档
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+这是百应机器人API文档，具体查看详情每个API接口调用说明；
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+如果有问题，欢迎联系我们客服，技术支持
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+公司官网地址 ：
 
-# Authentication
+邮箱地址 ：
 
-> To authorize, use this code:
+# 认证    
 
-```ruby
-require 'kittn'
+> 认证密钥样例
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```java
+  APP_KEY = "WtSMaJWdODxVotvy";
+  APP_SECRET = "aXSFnnZbHCVnowXJSROZyJPRMguz1Q";    
 ```
 
-```python
-import kittn
+> 请在API样例`byrobot-openapi-demo`中替换为自己的APP_Key和APP_SECRET.
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+百应为确保您的账户和信息安全，请在开发对接程序前联系百应技术支持 [注册]() 接口调用专属密钥。
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+您必须替换对接密钥 <code>APP_KEY 和 APP_SECRET </code>在您的对接程序中 
 </aside>
 
-# Kittens
+# 开发引导
 
-## Get All Kittens
+## 调用说明
 
-```ruby
-require 'kittn'
+百应机器人API是使用HTTP并遵循REST原则设计的Web服务接口；
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+您可以使用几乎任何客户端和任何编程语言与REST API进行交互。
+
+通过发送简单的HTTP请求就可以轻松接入使用。
+
+## 统一请求格式
+
+URL格式：
+
+<code>/{resource}/{function}</code>
+
+说明： 
+
+{resource}为资源名，通常对应一类API
+
+{function}为该资源提供的操作方法
+
+请求响应的结果为json格式
+
+>比如查询公司列表的url为：
+  
+```请求URL样例  
+<code>http://openapi/v1/company </code> 表示调用company（公司列表）的get方法，并且返回json格式的字符串。
+
+我们目前已经提供的接口，请参考API。 
+
 ```
 
-```python
-import kittn
+HTTP头信息:
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+<code>Accept:application/json;charset=utf-8</code>
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+<code>Content-Type:application/x-www-form-urlencoded;charset=utf-8</code>
 
-```javascript
-const kittn = require('kittn');
+说明：
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
+请求方式(Method)：统一用POST方式
+编码：UTF-8
+最佳实践：
 
-> The above command returns JSON structured like this:
+请使用发短信接口
+可以自动匹配模板，开发更简单
+请设置好IP白名单
+IP白名单可以有效提高账户安全性
+请补充完整您的账户资料信息
+包括设置余额提醒阈值、联系人和紧急联系人的联系方式等账户信息，方便我们提供更好的服务
+>
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+##SDK下载
 
-This endpoint retrieves all kittens.
+本页面提供Java的SDK下载。
 
-### HTTP Request
+SDK包内有部分使用说明，各接口的详细使用说明请浏览各API详情页。
 
-`GET http://example.com/api/kittens`
+如百应未提供您使用语言的SDK，您可以根据API文档开发接口
 
-### Query Parameters
+语言 | GitHub地址 
+--------- | ------- 
+JAVA | [GitHub地址](https://github.com/indata-public/byrobot-openapi-demo) 
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+##流程图:
 
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+ ![](images/OMS.png)
