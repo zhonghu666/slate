@@ -118,7 +118,7 @@ GET
  userPhoneId|Integer | 电话id |
  phone| String | 电话号码 |
   phoneName| String | 电话号码名称 |
- phoneType| Integer | 电话卡类型 0:手机卡 1:固话 2:无主叫 |
+ phoneType| Integer | 手机(0, "手机"),阿里云固话(1, "阿里云固话"),无主叫固话(2, "无主叫固话"), |
  available| Boolean | 是否可用 |
  totalConcurrencyQuota| Integer | 总并发数 |
  usedConcurrencyQuota| Integer | 已经使用并发数 |

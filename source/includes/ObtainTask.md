@@ -82,7 +82,7 @@ GET
  companyId| Integer| 是 | 公司Id| 1 |
  taskName| String| 否 |任务名称| 测试API任务 |
  createDate| String| 否 | | "2017-10-19" |
- status| Integer| 否 | 任务状态,选填 - 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止,7:排队中| 1 |
+ status| Integer| 否 | 任务状态,选填 - 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止| 1 |
  pageNum| Integer| 否 | 第几页,默认1| 1 |
  pageSize| Integer| 否 | 页面大小,选填,默认10| 10 |
 
@@ -106,7 +106,7 @@ GET
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
  breakEndTime| String | 暂时停止结束时间 |
- status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止,7:排队中 |
+ status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止 |
  remark| String  | 任务注释 |
  totalCount| Integer | 任务拨打的号码总数 |
  doneCount| Integer | 任务已完成拨打的号码总数 |
@@ -136,7 +136,7 @@ GET
         "startDate": "2017-10-19", // 任务开始时间
         "workingStartTime": "08:00:00", // 可拨打开始时间
         "workingEndTime": "22:00:00", // 可拨打结束时间
-        "status": 2, // 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止,7:排队中
+        "status": 2, // 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止
         "sceneDefId": 1, // 场景id
         "remark": "testJobx", // 任务注释
         "totalCount": 2, // 任务拨打的号码总数
@@ -265,7 +265,7 @@ GET
  workingEndTime| String | 可拨打结束时间 |
  breakStartTime| String | 暂时停止开始时间 |
  breakEndTime| String | 暂时停止结束时间 |
- status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止,7:排队中 |
+ status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止 |
  remark| String  | 任务注释 |
  totalCount| Integer | 任务拨打的号码总数 |
  doneCount| Integer | 任务已完成拨打的号码总数 |
@@ -300,7 +300,7 @@ GET
 	"durationRight" : 100, // 通话时长右值
 	"chatRoundLeft":0, // 通话轮次左值
 	"chatRoundRight":10, // // 通话时长右值
-	"finishStatus" : 1, // 0-已接听,1-拒接,2-无法接通,3-主叫号码不可用
+	"finishStatus" : 1, // 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费
 	"index": -1,    // 已经获取过任务结果的最大的index(第一次的时候传入-1，默认不传也是-1)，index是指任务中电话结束顺序
 	"pageNum": 1,    // 第几页(默认为1)
 	"pageSize": 10,    // 显示数量/页（默认为10）
@@ -408,7 +408,7 @@ GET
    durationRight| Integer| 否 |通话时长右值| 100 |
   chatRoundLeft| Integer| 否 |通话轮次左值| 21 |
   chatRoundRight| Integer| 否 |通话时长右值| 21 |
-  finishStatus| Integer| 否 |0-已接听,1-拒接,2-无法接通,3-主叫号码不可用| 21 |
+  finishStatus| Integer| 否 |0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费| 1 |
   index| Integer| 否 |已经获取过任务结果的最大的index(第一次的时候传入-1，默认不传也是-1)，index是指任务中电话结束顺序| 21 |
   pageNum| Integer| 否 |第几页(默认为1)| 1 |
   pageSize| Integer| 否 |显示数量/页（默认为10）| 10 |
@@ -433,7 +433,7 @@ GET
   status| String | 任务实例状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中 |
   finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
   breakEndTime| String | 暂时停止结束时间 |
-  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止,7:排队中 |
+  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止 |
   duration| Integer  | 通话时长 |
   chatRound| Integer | 通话轮次 |
   startTime| String | 开始拨打时间 |
@@ -450,3 +450,173 @@ GET
   resultList| List | 通话分析结果信息 |
   resultMsg| String | 响应说明 |
   errorStackTrace| String | 接口异常说明 |
+
+##获取一个通话的详情
+ 
+###功能说明：
+ 
+ 通过此接口可以获取指定通话的详细信息
+ 
+ >JSON响应实例：
+ 
+ ```
+ {
+    "code": 200,
+     "data": {
+        "phoneLog": {
+            "phoneLogs": [ // 对话内容
+                {
+                    "sceneInstanceLogId": 1321,
+                    "sceneInstanceId": 540, // 任务实例id
+                    "speaker": "AI", // 角色
+                    "content": "哎，您好，等待2s 哎，您好，拱墅区 中大银泰城边上有个首付50万左右的精装公寓你考虑吗？", // 内容
+                    "userMean": null,
+                    "userMeanDetail": null,
+                    "aiUnknown": false,
+                    "startTime": 0,
+                    "endTime": 0,
+                    "gmtCreate": "2018-01-24 20:51:53",
+                    "gmtModified": "2018-01-24 20:51:53"
+                },
+                {
+                    "sceneInstanceLogId": 1322,
+                    "sceneInstanceId": 540,
+                    "speaker": "ME",
+                    "content": "喂你好",
+                    "userMean": "~",
+                    "userMeanDetail": null,
+                    "aiUnknown": false,
+                    "startTime": 300,
+                    "endTime": 1145,
+                    "gmtCreate": "2018-01-24 20:51:55",
+                    "gmtModified": "2018-01-24 20:51:55"
+                },
+                {
+                    "sceneInstanceLogId": 1323,
+                    "sceneInstanceId": 540,
+                    "speaker": "ME",
+                    "content": "哦你好",
+                    "userMean": "~",
+                    "userMeanDetail": null,
+                    "aiUnknown": false,
+                    "startTime": 2330,
+                    "endTime": 3565,
+                    "gmtCreate": "2018-01-24 20:51:57",
+                    "gmtModified": "2018-01-24 20:51:57"
+                }
+          "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav" // 通话录音
+         },
+         "sceneInstance": {
+             "callInstanceId": 540, // 任务实例id
+             "companyId": 1, // 公司id
+             "callJobId": 31, // 任务id
+             "customerId": 55, // 客户id
+             "customerTelephone": "17751279857", // 客户手机
+             "customerName": "不弃", // 客户名称
+             "status": 2,  // 任务实例状态, 0: 未开始，1: 进行中，2: 已完成，3: 二次拨打调度中
+             "finishStatus": 0, // 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费
+             "duration": 87, // 通话时长
+             "chatRound": 18, // 通话轮次
+             "startTime": "2018-01-24 20:51:53", // 开始拨打时间
+             "endTime": "2018-01-24 20:53:28", // 结束拨打时间
+             "callerPhone": "18072749353", // 主叫电话
+             "luyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540/JYSYDCCHVFYYTMGJKKHJAMHARNNBWEJQ.wav",
+             "userLuyinOssUrl": "https://byrobot-test.oss-cn-hangzhou.aliyuncs.com/RobotPhoneCommunicate/540_user.wav",
+             "properties": "{}",
+             "handlePerson": "房产电销优化版",
+             "callType": 1,
+             "readStatus": 1,
+             "jobName": "buqi新的测试任务",
+            "robotDefId": 6,
+             "sceneDefId": 11,
+             "sceneRecordId": 1,
+             "trackResult": null,
+             "hangUp": 0,
+             "secondaryCallTime": "1970-01-01 13:00:00",
+             "secondaryCallTimes": 2,
+             "gmtCreate": "2018-01-24 20:51:31",
+             "gmtModified": "2018-02-03 18:27:19"
+         },
+         "taskResult": [ // 任务结果分析
+             {
+                 "sceneInstanceResultId": 188,
+                 "companyId": 1,
+                 "sceneInstanceId": 540,
+                 "resultName": "预约时间",
+                 "resultValue": "2018-01-25 08:00",
+                 "resultDesc": null,
+                 "analyzeType": null,
+                 "gmtCreate": "2018-01-24 20:53:01",
+                "gmtModified": "2018-01-24 20:53:01"
+             },
+             {
+                 "sceneInstanceResultId": 189,
+                 "companyId": 1,
+                 "sceneInstanceId": 540,
+                 "resultName": "客户意向等级",
+                 "resultValue": "A级(较强)",
+                 "resultDesc": "该客户在通话过程中主动询问了产品细节，有进一步了解产品的意愿。",
+                 "analyzeType": "BY_ANALYZE_USER_LEVEL",
+                 "gmtCreate": "2018-01-24 20:53:28",
+                 "gmtModified": "2018-01-31 10:34:55"
+             }
+         ]
+     },
+     "resultMsg": "获取成功",
+     "errorStackTrace": null
+ }
+ 
+ ```
+ 
+###请求：
+ 
+ URL：http://openapi/v1/task/phoneLogInfo
+ 
+###访问方式：
+ 
+ GET
+ 
+ 
+###请求参数:
+ 
+ 参数名 | 类型 | 是否必须 | 描述 | 实例 
+ --------- | ------- |------- | ------ |----------
+  callInstanceId| Integer| 是 | 任务实例id| 1 |  
+ 
+###响应：
+ 
+ 参数名 | 类型 | 描述 
+ --------- | ------- |------
+  code|integer | 响应码 |
+  data| object | 返回实体 |
+  phoneLogs| List | 对话内容 |
+  sceneInstanceId| Integer | 任务实例id |
+  speaker| String |角色|
+  content| String | 内容 |
+  aiUnknown| Integer | 是否是ai无法应答的问题，1-是，0-否 |
+  luyinOssUrl| String |通话录音|
+  callInstanceId| Integer | 任务实例id（每个被叫电话为一个实例） |
+  companyId| Integer | 公司id |
+  callJobId| Integer |任务id|
+  customerId| Integer | 客户id |
+  customerTelephone| String | 客户手机 |
+  customerName| String | 客户名称 |
+  finishStatus| String | 任务实例已经完成的状态, 0:已接听，1：拒接，2:无应答，3:主叫号码不可用, 4:空号, 5:关机, 6:占线, 7:停机, 8:未接, 9:主叫欠费 |
+  status| Integer | 任务状态, 0:未开始,1:进行中,2:已完成,4:用户暂停,5:系统暂停,6:已终止 |
+  duration| Integer  | 通话时长 |
+  chatRound| Integer | 通话轮次 |
+  startTime| String | 开始拨打时间 |
+  endTime| String | 结束拨打时间 |
+  callerPhone| String | 主叫电话 |
+  luyinOssUrl| Integer | 通话录音 |
+  callType| Integer | 拨打类型 0: 免费试用 1: 任务 2: 用户单独拨打 3: 收费试用 4:Ope后台拨打 100: 人工拨打  |
+  readStatus| Integer | 是否已读 0: 未读 1: 已读 |
+  robotDefId| String | 关联的机器人id |
+  sceneDefId| String | 场景ID | 
+  sceneRecordId| List | 关联的录音id | 
+  trackResult| List | bug追踪结果 | 
+  jobName| List | 任务名称 | 
+  hangUp| List | 挂机人, 0: AI 1: 用户 |
+  taskResult| String | 任务结果分析 |
+  resultMsg| String | 响应说明 |
+  errorStackTrace| String | 接口异常说明 |  
