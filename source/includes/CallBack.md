@@ -158,7 +158,7 @@
   resultMsg| String | 响应说明 |
   errorStackTrace| String | 接口异常说明 |
 
-##通话记录回调
+##任务完成详情回调
 
  
 ###功能说明：

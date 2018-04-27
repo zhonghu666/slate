@@ -68,7 +68,7 @@
 
 ###请求：
 
-URL：http://openapi/v1/task/getTasks
+URL：http://api.byrobot.cn/openapi/v1/task/getTasks
 
 ###访问方式：
 
@@ -236,7 +236,7 @@ GET
 
 ###请求：
 
-URL：http://openapi/v1/task/getTaskDetail
+URL：http://api.byrobot.cn/openapi/v1/task/getTaskDetail
 
 ###访问方式：
 
@@ -392,7 +392,7 @@ GET
  
 ###请求：
  
- URL：http://openapi/v1/task/queryDoneTaskPhones
+ URL：http://api.byrobot.cn/openapi/v1/task/queryDoneTaskPhones
  
 ###访问方式：
  
@@ -570,7 +570,7 @@ GET
  
 ###请求：
  
- URL：http://openapi/v1/task/phoneLogInfo
+ URL：http://api.byrobot.cn/openapi/v1/task/phoneLogInfo
  
 ###访问方式：
  

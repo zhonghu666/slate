@@ -29,7 +29,7 @@
 
 ###请求：
 
-URL：http://openapi/v1/company/getCompanys
+URL：http://api.byrobot.cn/openapi/v1/company/getCompanys
 
 ###访问方式：
 
@@ -94,7 +94,7 @@ GET
 
 ###请求：
 
-URL：http://openapi/v1/company/getPhones
+URL：http://api.byrobot.cn/openapi/v1/company/getPhones
 
 ###访问方式：
 
@@ -168,7 +168,7 @@ GET
 
 ###请求：
 
-URL：http://openapi/v1/company/getPhones
+URL：http://api.byrobot.cn/openapi/v1/company/getPhones
 
 ###访问方式：
 

@@ -44,7 +44,7 @@
 
 ###请求：
 
-URL：http://openapi/v1/task/createTask
+URL：http://api.byrobot.cn/openapi/v1/task/createTask
 
 ###访问方式：
 
@@ -103,7 +103,7 @@ POST
 
 ###请求：
 
-URL：http://openapi/v1/task/start
+URL：http://api.byrobot.cn/openapi/v1/task/start
 
 ###访问方式：
 
@@ -146,7 +146,7 @@ POST
  
 ###请求：
  
- URL：http://openapi/v1/task/pause
+ URL：http://api.byrobot.cn/openapi/v1/task/pause
  
 ###访问方式：
  
@@ -189,7 +189,7 @@ POST
  
 ###请求：
  
- URL：http://openapi/v1/task/stop
+ URL：http://api.byrobot.cn/openapi/v1/task/stop
  
 ###访问方式：
  
@@ -253,7 +253,7 @@ POST
  
 ###请求：
  
- URL：http://openapi/v1/task/importTaskCustomer
+ URL：http://api.byrobot.cn/openapi/v1/task/importTaskCustomer
 
 ###访问方式：
  
