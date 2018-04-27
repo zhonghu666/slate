@@ -1,22 +1,36 @@
-# Errors
-
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-The Kittn API uses the following error codes:
-
-
-Error Code | Meaning
+错误码 | 错误信息
 ---------- | -------
-400 | Bad Request -- Your request is invalid.
-401 | Unauthorized -- Your API key is wrong.
-403 | Forbidden -- The kitten requested is hidden for administrators only.
-404 | Not Found -- The specified kitten could not be found.
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method.
-406 | Not Acceptable -- You requested a format that isn't json.
-410 | Gone -- The kitten requested has been removed from our servers.
-418 | I'm a teapot.
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+200|执行成功
+301|调用高德API异常
+302|调用伯来API异常
+303|调用阿里云IOT的API异常
+304|调用阿里云DYVM的API异常
+400|用户未登录
+401|校验数据错误
+404|资源未找到
+403|权限不足
+404|不存在或不存在空闲的VoIP账号
+405|VoIP账号状态异常，已经存在
+406|请在微信公众号中打开链接
+407|日期选择不对
+408|时间选择不对
+409|不支持
+409|资源冲突
+410|您还没认证成为员工,无权限操作
+412|人脸照片不清晰
+412|参数错误
+413|没有权限
+414|没有该权限点，请联系上级管理员添加权限
+428|要求先决条件
+500|未知错误
+501|服务器无法完成该请求
+502|服务器重试出错
+600|未知错误
+601|阿里云nls管理出错
+700|短信发送失败
+701|今日的免费试用次数已用完
+701|VoIP账号重复
+800|开门权限不足
+801|欠费
+802|任务高于平均值
+901|阿里云热词库超限
