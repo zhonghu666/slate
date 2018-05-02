@@ -17,10 +17,8 @@ search: true
 
 如果有问题，欢迎联系我们客服，技术支持
 
-公司官网地址 ：
+公司官网地址 ：[www.byrobot.cn/](https://www.byrobot.cn/)
  
-邮箱地址 ：
-
 # 认证    
 
 > 认证密钥样例
